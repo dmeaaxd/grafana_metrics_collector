@@ -1,3 +1,5 @@
+import time
+
 from prometheus_client import CollectorRegistry, Gauge, pushadd_to_gateway
 from prometheus_client.exposition import basic_auth_handler
 import dotenv
@@ -24,8 +26,9 @@ def push_gauge_metric(metric, name, documentation):
 
 
 if __name__ == "__main__":
-    amocrm_integration_rpm, amocrm_integration_err_1, amocrm_integration_err_2 = metrics.amocrm_integration.get_metrics()
-    push_gauge_metric(amocrm_integration_rpm, 'amocrm_integration_rpm', 'Amocrm integration rpm')
-    push_gauge_metric(amocrm_integration_err_1, 'amocrm_integration_errors_1', 'Amocrm integration error 1')
-    push_gauge_metric(amocrm_integration_err_2, 'amocrm_integration_errors_2', 'Amocrm integration error 2')
-    print(f"amocrm_integration rpm: {amocrm_integration_rpm}, errors_1: {amocrm_integration_err_1}, errors_2: {amocrm_integration_err_2}")
+    while True:
+        amocrm_integration_rpm, amocrm_integration_err_1, amocrm_integration_err_2 = metrics.amocrm_integration.get_metrics()
+        push_gauge_metric(amocrm_integration_rpm, 'amocrm_integration_rpm', 'Amocrm integration rpm')
+        push_gauge_metric(amocrm_integration_err_1, 'amocrm_integration_errors_1', 'Amocrm integration error 1')
+        push_gauge_metric(amocrm_integration_err_2, 'amocrm_integration_errors_2', 'Amocrm integration error 2')
+        time.sleep(60)
