@@ -2,6 +2,8 @@ import dotenv
 from requests import get
 import os
 
+
+dotenv.load_dotenv()
 yandex_server_url = os.getenv('YANDEX_SERVER_URL')
 
 
