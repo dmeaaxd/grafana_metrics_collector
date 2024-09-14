@@ -22,7 +22,7 @@ def push_gauge_metric(metric, name, documentation):
 
     g = Gauge(name=name, documentation=documentation, registry=registry)
     g.set(metric)
-    pushadd_to_gateway('0.0.0.0:9091', job='custom_metrics', registry=registry, handler=my_auth_handler)
+    pushadd_to_gateway('147.45.108.82:9091', job='custom_metrics', registry=registry, handler=my_auth_handler)
 
 
 if __name__ == "__main__":
