@@ -28,3 +28,4 @@ if __name__ == "__main__":
     push_gauge_metric(amocrm_integration_rpm, 'amocrm_integration_rpm', 'Amocrm integration rpm')
     push_gauge_metric(amocrm_integration_err_1, 'amocrm_integration_errors_1', 'Amocrm integration error 1')
     push_gauge_metric(amocrm_integration_err_2, 'amocrm_integration_errors_2', 'Amocrm integration error 2')
+    print(f"amocrm_integration rpm: {amocrm_integration_rpm}, errors_1: {amocrm_integration_err_1}, errors_2: {amocrm_integration_err_2}")

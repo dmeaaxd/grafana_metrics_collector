@@ -12,3 +12,4 @@ def get_metrics():
     errors_2 = get(f'{yandex_server_url}/rpm').json()['errors_2']
 
     return rpm, errors_1, errors_2
+
