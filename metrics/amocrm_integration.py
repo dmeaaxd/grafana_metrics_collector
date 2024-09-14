@@ -1,5 +1,4 @@
 import dotenv
-from main import push_gauge_metric
 from requests import get
 import os
 
@@ -13,8 +12,3 @@ def get_metrics():
     errors_2 = get(f'{yandex_server_url}/rpm').json()['errors_2']
 
     return rpm, errors_1, errors_2
-
-
-if __name__ == '__main__':
-    rpm, errors_1, errors_2 = get_metrics()
-    push_gauge_metric(rpm, 'amocrm_integration_rpm', 'Amocrm integration script RPM')
