@@ -1,1 +1,1 @@
-import amocrm_integration
+from metrics import amocrm_integration
