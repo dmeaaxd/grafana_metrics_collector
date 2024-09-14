@@ -1,7 +1,7 @@
 import dotenv
+import main
 from requests import get
 import os
-
 
 dotenv.load_dotenv()
 yandex_server_url = os.getenv('YANDEX_SERVER_URL')
@@ -14,3 +14,7 @@ def get_metrics():
 
     return rpm, errors_1, errors_2
 
+
+if __name__ == '__main__':
+    rpm, errors_1, errors_2 = get_metrics()
+    main.push_gauge_metric(rpm, 'amocrm_integration_rpm', 'Amocrm integration script RPM')
