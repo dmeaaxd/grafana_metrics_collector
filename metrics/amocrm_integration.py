@@ -1,5 +1,5 @@
 import dotenv
-import main
+from main import push_gauge_metric
 from requests import get
 import os
 
@@ -17,4 +17,4 @@ def get_metrics():
 
 if __name__ == '__main__':
     rpm, errors_1, errors_2 = get_metrics()
-    main.push_gauge_metric(rpm, 'amocrm_integration_rpm', 'Amocrm integration script RPM')
+    push_gauge_metric(rpm, 'amocrm_integration_rpm', 'Amocrm integration script RPM')
